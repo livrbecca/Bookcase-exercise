@@ -1,0 +1,48 @@
+.booklist {
+    color: black;
+}
+
+.heading {
+    font-family: 'Caveat', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+
+.greeting {
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
+    text-align: center;
+    background-color: #FFF2BD;
+    border-radius: 30px;
+    border-width: medium;
+    width: 380px;
+}
+
+.greeting2 {
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
+    text-align: center;
+    background-color: #FFF2BD;
+    border-radius: 30px;
+    border-width: medium;
+    width: 380px;
+}
+
+button {
+    background-color: #FFF2BD;
+    font-family: 'Caveat', cursive;
+    font-size: 19px;
+}
+ul {
+    background-color: #A7D165;
+    width: 190px;
+}
+li {
+    color: black;
+    font-style: oblique;
+    font-weight: bold;
+}

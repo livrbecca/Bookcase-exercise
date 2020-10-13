@@ -1,0 +1,45 @@
+body {
+    background-color: #D089CD;
+}
+.headingb {
+    font-family: 'Caveat', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+.slogan {
+    font-family: 'Caveat', cursive;
+    font-size: 34px;
+}
+.App-header {
+    text-align: center;
+  }
+  .App-header {
+    background-color: #da7aa2;
+    color: white;
+  }
+  .App-logo {
+    height: 15vmin;
+    pointer-events: none;
+  }
+  
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+
+  @keyframes App-logo-spin{
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .collection {
+      width: 230px;
+      height: 230px;
+  }
