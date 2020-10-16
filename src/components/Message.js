@@ -16,7 +16,7 @@ class Message extends React.Component {
     });
     if (this.state.count === 1) {
       this.setState( {
-        message: "Already Done",
+        message: "Already Subscribed",
       });
     }
     if (this.state.count === 2) {
@@ -32,6 +32,16 @@ class Message extends React.Component {
     if (this.state.count === 4) {
       this.setState( {
         message: "Oh, You Are Home?",
+      });
+    }
+    if (this.state.count === 5) {
+      this.setState( {
+        message: "Well This Is Awkward",
+      });
+    }
+    if (this.state.count === 6) {
+      this.setState( {
+        message: "Well, Thank You For Subscribing. Have A Nice Day!",
       });
     }
   }

@@ -6,13 +6,39 @@ import Header from "./components/Header";
 import AboutUsPage from "./components/AboutUsPage";
 import LogForm from "./components/LogForm";
 import Message from "./components/Message";
+import Profiles from "./components/Profiles";
+import Search from "./components/Search";
+import Home from "./components/Home";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
+
+
 
 const App = (props) => {
   const [books, setBooks] = useState(data);
+  const [bookcase, setBookcase] = useState([]);
+
+  function removeBook(id) {
+    const newBookcaseList = bookcase.filter(book => book.id !== id);
+    setBookcase(newBookcaseList);
+  }
+
+  async function findBooks(value) {
+    const results = await
+   fetch(`https://www.googleapis.com/books/v1/volumes?q=${value}&filter=paid-ebooks&print-ty
+   pe=books&projection=lite`).then(res => res.json());
+    if (!results.error) {
+    setBooks(results.items);
+    }
+   }
 
   function addBook(title, id) {
     const newBookList = books.filter((book) => book.id !== id);
+    const chosenBook = books.filter((book) => book.id === id);
     setBooks(newBookList);
+    setBookcase([...bookcase, ...chosenBook])
     console.log(newBookList)
     console.log(`The Book ${title} was clicked`);
   }
@@ -34,8 +60,7 @@ const App = (props) => {
         path="/"
         render={() => (
           <>
-            <Header />
-            <BookList books={books} addBook={addBook} />
+            <Home />
           </>
         )}
       />
@@ -45,7 +70,29 @@ const App = (props) => {
         render={() => (
           <>
             <Header />
-            
+            <Search findBooks={findBooks} />
+            <BookList books={books} addBook={addBook}/>
+          </>
+        )}
+      />
+      <Route
+        exact
+        path="/yourbooklist"
+        render={() => (
+          <>
+            <Header />
+            <Search findBooks={findBooks} />
+            <BookList books={bookcase} removeBook={removeBook} />
+          </>
+        )}
+      />
+      <Route
+        exact
+        path="/profiles"
+        render={() => (
+          <>
+            <Header />
+            <Profiles />
           </>
         )}
       />
@@ -66,6 +113,16 @@ const App = (props) => {
           <>
             <Header />
             <LogForm />
+          </>
+        )}
+      />
+       <Route
+        exact
+        path="/search"
+        render={() => (
+          <>
+            <Header />
+            <Search findBooks={findBooks} />
           </>
         )}
       />

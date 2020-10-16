@@ -1,5 +1,9 @@
 import React from "react";
-//import PropTypes from 'prop-types';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Card from "react-bootstrap/Card";
+import Button from 'react-bootstrap/Button';
+import './books.css';
+
 
 const Book = (props) => {
   const formatter = new Intl.NumberFormat("en-GB", {
@@ -17,22 +21,40 @@ const Book = (props) => {
   };
 
   return (
-    <div>
-      <h1>{props.volumeInfo.title}</h1>
-      <h2> {props.volumeInfo.authors} </h2>
-      <img
-        src={props.volumeInfo.imageLinks.smallThumbnail}
-        alt="book covers"
-      ></img>
-      <h2>{props.volumeInfo.description}</h2>
-      <h2>Amount: {amount()}</h2>
-      <a href={props.selfLink}>Click Here to Buy</a>
-      <button onClick={() => props.addBook(props.volumeInfo.title, props.id)}>
-        Add +
-      </button>
-    </div>
+      <Card>
+        <img
+        className="cimg"
+          variant="top"
+          src={
+            props.volumeInfo.imageLinks.smallThumbnail ||
+            props.volumeInfo.imageLinks.thumbnail
+          }
+          alt="book covers"
+        />
+        <Card.Body>
+          <Card.Title>{props.volumeInfo.title}</Card.Title>
+          <Card.Text>
+            {props.volumeInfo.authors},{props.volumeInfo.description}
+          </Card.Text>
+          <Card.Subtitle>Amount: {amount()}</Card.Subtitle>
+          {props.addBook && (
+          <Button
+            onClick={() => props.addBook(props.volumeInfo.title, props.id)}
+          >
+            Add +
+          </Button>
+          )}
+          {props.removeBook && (
+          <Button
+            onClick={() => props.removeBook(props.id)}
+          >
+            Remove
+          </Button>
+          )}
+        </Card.Body>
+      </Card>
   );
-};
+}
 
 // Book.propTypes = {
 //   title: PropTypes.string.isRequired,

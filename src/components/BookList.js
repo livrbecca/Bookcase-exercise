@@ -1,11 +1,16 @@
 import React from "react";
+//import CardDeck from 'react-bootstrap/CardDeck'
+//import CardGroup from 'react-bootstrap/CardGroup'
 import Book from "./Books";
+//import CardColumns from 'react-bootstrap/CardColumns'
+import Row from 'react-bootstrap/Row'
+
 
 const BookList = (props) => {
   return (
-    <div>
+    <Row>
       {props.books.map((book) => {
-        let { id, selfLink, volumeInfo, saleInfo } = book;
+        let { id, volumeInfo, saleInfo } = book;
         return (
           <Book
             id={id}
@@ -13,12 +18,12 @@ const BookList = (props) => {
             book={book}
             addBook={props.addBook}
             volumeInfo={volumeInfo}
-            selfLink={selfLink}
             saleInfo={saleInfo}
+            removeBook={props.removeBook}
           />
         );
       })}
-    </div>
+    </Row>
   );
 };
 
