@@ -1,38 +1,40 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import "./header.css";
 
 const Header = (props) => {
   return (
-    <>
-      <Link to="/" className="home">
+    <React.Fragment>
+      <div className="navbar">
+      <Link to="/" className="navlink">
         Home
       </Link>
       <br />
-      <Link to="/bookcase" className="bookLink">
+      <Link to="/bookcase" className="navlink">
         Bookcase
       </Link>
       <br />
-      <Link to="/yourbooklist" className="booklist">
+      <Link to="/yourbooklist" className="navlink">
         Your Book List
       </Link>
       <br />
-      <Link to="/aboutUsPage" className="about">
+      <Link to="/aboutUsPage" className="navlink">
         About Us
       </Link>
       <br />
-      <Link to="/form" className="form">
+      <Link to="/form" className="navlink">
         Form
       </Link>
       <br />
-      <Link to="/subscribe" className="subscribe">
+      <Link to="/subscribe" className="navlink">
         Subscribe
       </Link>
       <br />
-      <Link to="/profiles" className="profiles">
+      <Link to="/profiles" className="navlink">
         Top Readers
       </Link>
-      <br />
-    </>
+      </div>
+    </React.Fragment>
   );
 };
 

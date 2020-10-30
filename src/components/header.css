@@ -1,0 +1,19 @@
+.navbar {
+  background: rgba(254, 166, 3, 0.4);
+  height: 70px;
+}
+
+.navlink {
+  color: black;
+  border-color: pink;
+  font-size: 23px;
+  margin-left: 40px;
+  margin-top: 10px;
+  margin-bottom: 80px;
+}
+
+.navlink:hover {
+  background-color: rgba(255, 192, 203);
+  border-color: pink;
+  color: black;
+}

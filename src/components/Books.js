@@ -5,6 +5,9 @@ import Button from 'react-bootstrap/Button';
 import './books.css';
 
 
+
+//() => setCount(count + 1)
+
 const Book = (props) => {
   const formatter = new Intl.NumberFormat("en-GB", {
     style: "currency",
@@ -19,8 +22,9 @@ const Book = (props) => {
       return amount;
     }
   };
-
   return (
+      <div>
+      <br />
       <Card>
         <img
         className="cimg"
@@ -38,8 +42,9 @@ const Book = (props) => {
           </Card.Text>
           <Card.Subtitle>Amount: {amount()}</Card.Subtitle>
           {props.addBook && (
-          <Button
-            onClick={() => props.addBook(props.volumeInfo.title, props.id)}
+          <Button className="add"
+              onClick={
+                () => props.addBook(props.volumeInfo.title, props.id,)}
           >
             Add +
           </Button>
@@ -53,6 +58,7 @@ const Book = (props) => {
           )}
         </Card.Body>
       </Card>
+      </div>
   );
 }
 

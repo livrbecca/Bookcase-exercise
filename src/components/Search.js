@@ -21,7 +21,7 @@ const Search = (props) => {
             onChange={(e) => setKeyword(e.target.value)}
           />
         </Form.Group>
-        <h2>{keyword && "Searching for keyword:" + keyword}</h2>
+        <h2>{keyword}</h2>
         <Button type="submit">Submit</Button>
       </Form>
     </div>

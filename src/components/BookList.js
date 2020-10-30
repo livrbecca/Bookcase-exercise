@@ -1,30 +1,34 @@
 import React from "react";
-//import CardDeck from 'react-bootstrap/CardDeck'
-//import CardGroup from 'react-bootstrap/CardGroup'
 import Book from "./Books";
-//import CardColumns from 'react-bootstrap/CardColumns'
-import Row from 'react-bootstrap/Row'
+import Row from "react-bootstrap/Row";
 
 
 const BookList = (props) => {
+
   return (
-    <Row>
-      {props.books.map((book) => {
-        let { id, volumeInfo, saleInfo } = book;
-        return (
-          <Book
-            id={id}
-            key={book.id}
-            book={book}
-            addBook={props.addBook}
-            volumeInfo={volumeInfo}
-            saleInfo={saleInfo}
-            removeBook={props.removeBook}
-          />
-        );
-      })}
-    </Row>
+    <>
+     {props.count > 0 && <h3>You have added {props.count} books to your Personal Booklist</h3>}
+      <Row>
+        {props.books.map((book) => {
+          let { id, volumeInfo, saleInfo } = book;
+          return (
+            <div>
+            <Book
+              id={id}
+              key={book.id}
+              book={book}
+              addBook={props.addBook}
+              volumeInfo={volumeInfo}
+              saleInfo={saleInfo}
+              removeBook={props.removeBook}
+            />
+            </div>
+          );
+        })}
+      </Row>
+    </>
   );
 };
+
 
 export default BookList;
